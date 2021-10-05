@@ -1,3 +1,10 @@
+<html>
+ <head>
+   <title>Hello World</title>
+ </head>
+ <body>
+
+
 <?php
 $page_title = "HandiHelp";
 
@@ -12,7 +19,7 @@ $data = $dbh->getBlog();
 if (isset($_SESSION["userid"])) {
     echo '<a href="taskInsertForm.php">Créer une demande</a>';
 }
-
+User::getUser();
 ?>
 
 <div id="taskList">
