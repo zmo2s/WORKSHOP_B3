@@ -11,7 +11,7 @@
 </head>
 <body>
     <div id="titreIndex">
-        <h1>Blog</h1>
+        <h1>HandiHELP</h1>
     </div>
 
     <div id="menuIndex">

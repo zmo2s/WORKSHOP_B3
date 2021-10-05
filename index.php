@@ -1,9 +1,9 @@
 <?php
 $page_title = "HandiHelp";
 
-require_once('traitement/databaseHandler.php');
-require_once("struct/head.php");
-require_once("modules/connectNav.php");
+require_once('modele/databaseHandler.php');
+require_once("view/head.php");
+require_once("modele/connectNav.php");
 
 $_SESSION["page"] = "index.php";
 

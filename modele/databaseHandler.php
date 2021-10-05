@@ -5,7 +5,7 @@ class DatabaseHandler
     private $_dbh;
     function __construct()
     {
-        $dbname = "HandiHelp";
+        $dbname = "handihelp";
         $dbuser = "root";
         $dbpassword = "";
 
