@@ -1,16 +1,20 @@
 <?php
 
+
 class DatabaseHandler
 {
 
     private static $instance;
     private $pdo;
 
+   
+
     private function __construct()
     {
         $dbname = "handihelp";
-        $dbuser = "root";
-        $dbpassword = "";
+        $dbuser = "phpmyadmin";
+      
+        $dbpassword = "Password1011%";
 
         try {
             $this->pdo = new PDO("mysql:host=localhost;dbname=" . $dbname . ";charset=utf8;", $dbuser, $dbpassword);

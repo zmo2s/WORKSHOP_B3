@@ -33,5 +33,17 @@ class Tasks
 
         return $data;
     }
+
+    public function createTask()
+    {
+        return DatabaseHandler::getInstance()->executeQuery("INSERT INTO tasks (date_crea, commentaires, id_demandeur, id_intervenant, urgence, statut) VALUES (:date_crea, :commentaires, :id_demandeur, :id_intervenant, :urgence, :statut)", array(
+            'date_crea' => $this->date_crea,
+            'commentaires' => $this->commentaires,
+            'id_intervenant' => $this->id_intervenant,
+            'urgence' => $this->urgence,
+            'date_crea' => $this->date_crea,
+            'statut' => $this->statut
+        ));
+    }
 }
 
