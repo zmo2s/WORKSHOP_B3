@@ -1,6 +1,6 @@
 <html>
  <head>
-   <title>HandiHelp</title>
+   <title>Hello World</title>
  </head>
  <body>
 
@@ -8,38 +8,46 @@
 <?php
 $page_title = "HandiHelp";
 
-include("modele/User.php");
+require_once('modele/databaseHandler.php');
 require_once("view/head.php");
 require_once("modele/connectNav.php");
 
 $_SESSION["page"] = "index.php";
 
-// $data = $dbh->getBlog();
+$data = $dbh->getBlog();
 
 if (isset($_SESSION["userid"])) {
     echo '<a href="taskInsertForm.php">Créer une demande</a>';
 }
-$user = new User("albert", "prenom", "password", "mail");
-$data = $user->getUser();
-var_dump($data);
-
+User::getUser();
 ?>
 
-<<<<<<< HEAD
-=======
 <div id="taskList">
     <ul class="taskList">
 
         <?php
         if (isset($data)) {
             foreach ($data as $row) {
-                var_dump($row);
+
+                echo sprintf(
+                    "
+                    <li>
+                        <a class=\"content\" href=\"taskDisplay.php?idTask=%s\">
+                            %s
+                        </a>, 
+                        <span class=\"author\">%s</span> 
+                        <span class=\"date\">%s</span>
+                    ",
+                    $row->id,
+                    $row->content,
+                    $row->task_author,
+                    $row->sent_at
+                );
             }
         }
         ?>
     </ul>
 </div>
->>>>>>> 7205bf345e7a38b2a36f9844e5a7c85128eaa066
 </body>
 
 </html>
