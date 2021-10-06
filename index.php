@@ -25,6 +25,21 @@ var_dump($data);
 
 ?>
 
+<<<<<<< HEAD
+=======
+<div id="taskList">
+    <ul class="taskList">
+
+        <?php
+        if (isset($data)) {
+            foreach ($data as $row) {
+                var_dump($row);
+            }
+        }
+        ?>
+    </ul>
+</div>
+>>>>>>> 7205bf345e7a38b2a36f9844e5a7c85128eaa066
 </body>
 
 </html>

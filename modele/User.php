@@ -3,10 +3,10 @@
 require('modele/databaseHandler.php');
 Class User {
 
-    public String $nom;
-    public String $prenom;
-    public String $password;
-    public String $mail;
+    public  $nom;
+    public  $prenom;
+    public  $password;
+    public  $mail;
 
     public function __construct($nom, $prenom, $password, $mail) {
         $this->nom = $nom;
