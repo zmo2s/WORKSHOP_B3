@@ -9,6 +9,7 @@
 $page_title = "HandiHelp";
 
 include("modele/User.php");
+include("modele/Tasks.php");
 require_once("view/head.php");
 require_once("modele/connectNav.php");
 
@@ -22,6 +23,9 @@ if (isset($_SESSION["userid"])) {
 $user = new User("albert", "prenom", "password", "mail");
 $data = $user->getUser();
 var_dump($data);
+$date_crea =  date('Y-m-d H:i:s');
+$task = new Tasks($date_crea, 'Besoin Help', 1, 1, true, 'en cours');
+$task->createTask();
 
 ?>
 

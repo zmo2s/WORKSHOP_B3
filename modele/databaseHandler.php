@@ -31,11 +31,11 @@ class DatabaseHandler
         return self::$instance;
     }
 
-    function executeQuery($afficher)
+    function executeQuery($afficher, $params = [])
     {
         $stmt = self::getInstance()->pdo->prepare($afficher);
 
-        $stmt->execute();
+        $stmt->execute($params);
 
         $data = $stmt->fetchAll(PDO::FETCH_OBJ); 
         return $data;  
