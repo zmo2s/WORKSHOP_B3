@@ -19,14 +19,10 @@ $_SESSION["page"] = "index.php";
 if (isset($_SESSION["userid"])) {
     echo '<a href="taskInsertForm.php">Créer une demande</a>';
 }
-<<<<<<< HEAD
 $user = new User("albert", "prenom", "password", "mail");
 $data = $user->getUser();
 var_dump($data);
 
-=======
-User::getUser();
->>>>>>> 403be812b4711a26b44abea5dd0b4b4beba8e377
 ?>
 
 <div id="taskList">
