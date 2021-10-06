@@ -1,26 +1,46 @@
 <?php
+
 class DatabaseHandler
 {
 
-    private $_dbh;
-    function __construct()
+    private static $instance;
+    private $pdo;
+
+    private function __construct()
     {
         $dbname = "handihelp";
         $dbuser = "root";
         $dbpassword = "";
 
         try {
-            $this->_dbh = new PDO("mysql:host=localhost;dbname=" . $dbname . ";charset=utf8;", $dbuser, $dbpassword);
+            $this->pdo = new PDO("mysql:host=localhost;dbname=" . $dbname . ";charset=utf8;", $dbuser, $dbpassword);
         } catch (PDOException $exception) {
             die("Erreur connexion à la base de données");
         }
     }
+    public static function getInstance()
+    {
+        if (!isset(self::$instance)) {
+            self::$instance = new DatabaseHandler();
+        }
 
+        return self::$instance;
+    }
+
+    function executeQuery($afficher)
+    {
+        $stmt = self::getInstance()->pdo->prepare($afficher);
+
+        $stmt->execute();
+
+        $data = $stmt->fetchAll(PDO::FETCH_OBJ); 
+        return $data;  
+    }
     function getTask()
     {
         $afficher = "SELECT * FROM task";
 
-        $stmt = $this->_dbh->prepare($afficher);
+        $stmt = $this->instance->prepare($afficher);
 
         $stmt->execute();
 
@@ -29,4 +49,3 @@ class DatabaseHandler
         return $data;
     }
 }
-$dbh = new DatabaseHandler();

@@ -1,17 +1,27 @@
+<html>
+ <head>
+   <title>Hello World</title>
+ </head>
+ <body>
+
+
 <?php
 $page_title = "HandiHelp";
 
-require_once('modele/databaseHandler.php');
+include("model/User.php");
 require_once("view/head.php");
 require_once("modele/connectNav.php");
 
 $_SESSION["page"] = "index.php";
 
-$data = $dbh->getBlog();
+// $data = $dbh->getBlog();
 
 if (isset($_SESSION["userid"])) {
     echo '<a href="taskInsertForm.php">Créer une demande</a>';
 }
+$user = new User("albert", "prenom", "password", "mail");
+$data = $user->getUser();
+var_dump($data);
 
 ?>
 
