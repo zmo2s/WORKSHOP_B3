@@ -1,6 +1,6 @@
 <html>
  <head>
-   <title>Hello World</title>
+   <title>HandiHelp</title>
  </head>
  <body>
 
@@ -8,7 +8,7 @@
 <?php
 $page_title = "HandiHelp";
 
-include("model/User.php");
+include("modele/User.php");
 require_once("view/head.php");
 require_once("modele/connectNav.php");
 
