@@ -10,7 +10,7 @@ class DatabaseHandler
     {
         $dbname = "handihelp";
         $dbuser = "root";
-        $dbpassword = "";
+        $dbpassword = "root";
 
         try {
             $this->pdo = new PDO("mysql:host=localhost;dbname=" . $dbname . ";charset=utf8;", $dbuser, $dbpassword);
