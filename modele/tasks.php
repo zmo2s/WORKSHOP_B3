@@ -12,9 +12,8 @@ class Tasks
     private $urgence;
     private $statut;
 
-    public function __construct(int $id, $date_crea, $commentaires, int $id_demandeur, int $id_intervenant, $urgence, $statut)
+    public function __construct($date_crea, $commentaires, int $id_demandeur, int $id_intervenant, $urgence, $statut)
     {
-        $this->_id = $id;
         $this->date_crea = $date_crea;
         $this->_commentaires = $commentaires;
         $this->id_demandeur = $id_demandeur;
@@ -28,7 +27,14 @@ class Tasks
 
     public function createTask()
     {
-        return DatabaseHandler::getInstance()->executeQuery("INSERT INTO tasks (date_crea, commentaires, id_demandeur, id_intervenant, urgence, statut) VALUES ('?,?,?,?,?,?' )");
+        return DatabaseHandler::getInstance()->executeQuery("INSERT INTO tasks (date_crea, commentaires, id_demandeur, id_intervenant, urgence, statut) VALUES (:date_crea, :commentaires, :id_demandeur, :id_intervenant, :urgence, :statut)", array(
+            'date_crea' => $this->date_crea,
+            'commentaires' => $this->commentaires,
+            'id_intervenant' => $this->id_intervenant,
+            'urgence' => $this->urgence,
+            'date_crea' => $this->date_crea,
+            'statut' => $this->statut
+        ));
     }
 
     public function getTasks()
