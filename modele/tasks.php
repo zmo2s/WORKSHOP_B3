@@ -1,4 +1,7 @@
 <?php
+
+require('modele/databaseHandler.php');
+
 class Tasks
 {
     private $_id;
@@ -9,7 +12,7 @@ class Tasks
     private $urgence;
     private $statut;
 
-    function __construct(int $id, $date_crea, $commentaires, int $id_demandeur, int $id_intervenant, $urgence, $statut)
+    public function __construct(int $id, $date_crea, $commentaires, int $id_demandeur, int $id_intervenant, $urgence, $statut)
     {
         $this->_id = $id;
         $this->date_crea = $date_crea;
@@ -21,17 +24,34 @@ class Tasks
 
     }
 
-    function getTasks()
+    // creer un task
+
+    public function createTask()
     {
-        $afficher = "SELECT * FROM tasks";
-
-        $stmt = $this->_dbh->prepare($afficher);
-
-        $stmt->execute();
-
-        $data = $stmt->fetchAll(PDO::FETCH_OBJ);
-
-        return $data;
+        return DatabaseHandler::getInstance()->executeQuery("INSERT INTO tasks (date_crea, commentaires, id_demandeur, id_intervenant, urgence, statut) VALUES ('?,?,?,?,?,?' )");
     }
+
+    public function getTasks()
+    {
+        return DatabaseHandler::getInstance()->executeQuery("SELECT * FROM tasks");
+    }
+
+    public function getTaskById($id)
+    {
+        return DatabaseHandler::getInstance()->executeQuery("SELECT * FROM tasks WHERE id = :id");
+    }
+
+    public function deleteTask($id)
+    {
+        return DatabaseHandler::getInstance()->executeQuery("SELECT * FROM tasks");
+    }
+
+//     public function updateTask($id, $date_crea, $commentaires, $id_demandeur, $id_intervenant, $urgence, $statut)
+
+//     return DatabaseHandler::getInstance()->executeQuery("UPDATE tasks SET 'date_crea' = $date_crea'");
+
+//     UPDATE table
+// SET nom_colonne_1 = 'nouvelle valeur'
+// WHERE condition
 }
 

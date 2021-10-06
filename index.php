@@ -25,32 +25,6 @@ var_dump($data);
 
 ?>
 
-<div id="taskList">
-    <ul class="taskList">
-
-        <?php
-        if (isset($data)) {
-            foreach ($data as $row) {
-
-                echo sprintf(
-                    "
-                    <li>
-                        <a class=\"content\" href=\"taskDisplay.php?idTask=%s\">
-                            %s
-                        </a>, 
-                        <span class=\"author\">%s</span> 
-                        <span class=\"date\">%s</span>
-                    ",
-                    $row->id,
-                    $row->content,
-                    $row->task_author,
-                    $row->sent_at
-                );
-            }
-        }
-        ?>
-    </ul>
-</div>
 </body>
 
 </html>
