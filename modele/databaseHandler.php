@@ -12,9 +12,9 @@ class DatabaseHandler
     private function __construct()
     {
         $dbname = "handihelp";
-        $dbuser = "root";
+        $dbuser = "phpmyadmin";
       
-        $dbpassword = "";
+        $dbpassword = "Password1011%";
 
         try {
             $this->pdo = new PDO("mysql:host=localhost;dbname=" . $dbname . ";charset=utf8;", $dbuser, $dbpassword);

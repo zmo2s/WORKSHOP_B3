@@ -10,8 +10,46 @@ $page_title = "HandiHelp";
  include ("view/library/bootstrap.html");
 include("modele/User.php");
 include("modele/Tasks.php");
-require_once("view/head.php");
+
 ?>
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
+  <div class="container">
+    <a class="navbar-brand" href="http://127.0.0.1/work">
+      <img src="logo.png" alt="..." height="36">
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ms-auto">
+       
+        <li class="nav-item text-white">
+          <a class="nav-link active" href="http://127.0.0.1/work/view/add_task.php">Nouvelle tâche</a>
+        </li>
+      
+        <li class="nav-item">
+          <a class="nav-link active" href="http://127.0.0.1/work/view/historique.php">Historique</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle nav-link active" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Profil
+          </a>
+          <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="#">A propos</a></li>
+            <li><a class="dropdown-item" href="http://127.0.0.1/work/">Deconnecter</a></li>
+         
+            <li><a class="dropdown-item" href="">Historique</a></li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
 <form method="post" action="view/head.php">
   <div class="form-group col-lg-2">
     <label for="exampleInputEmail1">Email address</label>
@@ -51,7 +89,7 @@ $task = $task->getTasks();
         if (isset($data)) {
             foreach ($data as $row) {
         echo $row->nom; ?>
-        <tr id="1"><td> <?php $row->$nom ?></td></tr> <?php
+        <tr id="1"><td> <?php $row->nom ?></td></tr> <?php
             }
         }
         ?>
