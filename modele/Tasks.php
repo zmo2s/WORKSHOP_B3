@@ -23,15 +23,8 @@ class Tasks
 
     function getTasks()
     {
-        $afficher = "SELECT * FROM tasks";
-
-        $stmt = $this->_dbh->prepare($afficher);
-
-        $stmt->execute();
-
-        $data = $stmt->fetchAll(PDO::FETCH_OBJ);
-
-        return $data;
+     
+  return DatabaseHandler::getInstance()->executeQuery("SELECT * FROM tasks");
     }
 
     public function createTask()

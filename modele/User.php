@@ -20,5 +20,33 @@ Class User {
         return DatabaseHandler::getInstance()->executeQuery("select * from users;");
     }
 
+    public function createUser()
+    {
+        return DatabaseHandler::getInstance()->executeQuery("INSERT INTO users (nom, prenom, mdp, email) VALUES (:nom, :prenom, :mdp, :email)", array(
+            'nom' => $this->nom,
+            'prenom' => $this->prenom,
+            'mdp' => $this->password,
+            'email' => $this->mail
+        ));
+    }
+
+    
+    public function updateUser($id)
+    {
+        return DatabaseHandler::getInstance()->executeQuery("UPDATE users SET nom = :nom, prenom = :prenom, mdp = :mdp, email = :email WHERE id = :id", array(
+            'nom' => $this->nom,
+            'prenom' => $this->prenom,
+            'mdp' => $this->password,
+            'email' => $this->mail,
+            'id' => $id
+        ));
+    }
+    
+    public function deleteUser($id)
+    {
+        return DatabaseHandler::getInstance()->executeQuery("DELETE FROM users WHERE id = :id", array(
+            'id' => $id
+        ));
+    }
 }
 ?>

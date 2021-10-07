@@ -36,7 +36,7 @@ class DatabaseHandler
         $stmt = self::getInstance()->pdo->prepare($afficher);
 
         $stmt->execute($params);
-
+       
         $data = $stmt->fetchAll(PDO::FETCH_OBJ); 
         return $data;  
     }

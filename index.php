@@ -30,7 +30,7 @@ $data = $user->getUser();
 var_dump($data);
 $date_crea =  date('Y-m-d H:i:s');
 $task = new Tasks("tourner la vise",$date_crea, 'Besoin Help', 1, 1, true, 'en cours');
-$task->createTask();
+$task = $task->getTasks();
 
 ?>
 
@@ -38,15 +38,75 @@ $task->createTask();
     <ul class="taskList">
 
         <?php
+         
         if (isset($data)) {
             foreach ($data as $row) {
-
-            var_dump($row);
+        echo $row->nom; ?>
+        <tr id="1"><td> <?php $row->$nom ?></td></tr> <?php
             }
         }
         ?>
     </ul>
 </div>
+
+
+<div class="tableFixHead">
+    <table id="myTable" class="table table-dark table-hover">
+      <thead>
+        <tr><th>nom</th><th>prenom</th><th>email</th>
+      </thead>
+      <tbody>
+     
+      <?php
+      
+        if (isset($data)) {
+        ?>  
+           <?php foreach ($data as $row) {
+       ?>
+        <tr><td> <?php echo (string) $row->nom ?></td><td> <?php echo (string) $row->prenom ?></td><td> <?php echo (string) $row->email ?></td></tr> 
+       
+         <?php
+            }
+        }
+        
+        ?>
+       
+        </td>
+
+      </tbody>
+    </table>
+  </div>
+
+<?php var_dump($task) ?>
+  <div class="tableFixHead">
+    <table id="myTable" class="table table-dark table-hover">
+      <thead>
+        <tr><th>Nom demandeur</th><th>Nom de la tache</th><th>Intervenant</th><th>Statut</th><th>resolu</th><th>Supprimer</th></tr>
+      </thead>
+      <tbody>
+     
+      <?php
+      $cpt = 0;
+        if (isset($task)) {
+        ?>  
+           <?php foreach ($task as $row) {
+             $cpt = $cpt + 1;
+       ?>
+        <tr id=<?php echo $cpt ?>><td> <?php echo (string) $row->id_demandeur ?></td><td> <?php echo (string) $row->nom ?></td><td> <?php echo (string) $row->id_intervenant ?></td><td> <?php echo (string) $row->statut ?></td><td><button onclick="myFunction(id)" id=<?php echo $cpt ?> type="button" class="btn btn-info"><i class="bi-check-circle" ></i></button><td><button type="button" class="btn btn-danger">  <i class="bi-trash" ></i></button></td></tr> 
+       
+         <?php
+            }
+        }
+        
+        ?>
+       
+        </td>
+
+      </tbody>
+    </table>
+  </div>
+  <script type="text/javascript" src="view/javascript/array.js"></script>
+
 </body>
 
 </html>
