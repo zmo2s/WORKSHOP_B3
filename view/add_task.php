@@ -23,13 +23,7 @@
 <button type="submit" class="btn btn-primary">Ok</button>
 
 <div class="row">
-  <div class="col-2">
-    <span id=service>Service :</span>
-    <select name="service">
-      <option value="service1">Service 1</option>
-      <option value="service2">Service 2</option>
-    </select>
-  </div>
+
   <div class="col-auto">
     <span id=service>Salarié :</span>
     <select name="service">
@@ -55,6 +49,7 @@
 
 
 </form>
+<?php include "html/comment/comment.html";?>
 <div class="mt-5" ></div>
                     <div class="mt-5" ></div>
                   <?php include "html/table/table.html";?>
