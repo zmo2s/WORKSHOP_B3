@@ -1,22 +1,23 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset='utf-8'>
-    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title><?=$page_title?></title>
-    <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel='stylesheet' type='text/css' media='screen' href='css/fontawesome.min.css'>
-    <link rel='stylesheet' type='text/css' media='screen' href='css/main.css'>
-    <script src='main.js'></script>
+        <?php include "library/bootstrap.html";?>
+        <link rel="stylesheet" href="css/table.css">
+     
+        <meta charset="UTF-8">
+        <title>HandiHelp</title>
 </head>
 <body>
-    <div id="titreIndex">
-        <h1>HandiHELP</h1>
-    </div>
 
-    <div id="menuIndex">
-        <h2>
-            <a href="index.php">Accueil</a>
-        </h2>
-    </div>
-    <hr>
+        <?php include "html/header/navbar.html";?>
+        <div class="mt-5 ms-5">
+              <div class="mt-5">
+              
+                    <div class="mt-5" ></div>
+                    <div class="mt-5" ></div>
+                  <?php include "html/table/table.html";?>
+              </div>
+        </div>
+        <script type="text/javascript" src="javascript/array.js"></script>
+</body>
+</html>

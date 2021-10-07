@@ -1,3 +1,0 @@
-
-let fruits = ['Apple', 'Banana'];
-
