@@ -63,5 +63,12 @@ class Tasks
             'id' => $id
         ));
     }
+
+    public static function jointureNomDemandeur($id)
+    {
+        return DatabaseHandler::getInstance()->executeQuery("SELECT users.nom FROM users INNER JOIN tasks ON users.id = tasks.id_demandeur where users.id = :id", array(
+            'id' => $id
+        ));
+    }
 }
 

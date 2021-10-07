@@ -29,8 +29,17 @@ $user = new User("albert", "prenom", "password", "mail");
 $data = $user->getUser();
 var_dump($data);
 $date_crea =  date('Y-m-d H:i:s');
+
+$task = new Tasks("tourner la vise",$date_crea, 'Besoin Help', 1, 1, true, 'en cours');
+$id_demandeur = $task->jointureNomDemandeur(1);
+echo "la valeur de l'id demdandeur".$id_demandeur;
+ var_dump($id_demandeur);
+
 $task = new Tasks("tourner la vise",$date_crea, 'Besoin Help', 1, 1, true, 'en cours');
 $task = $task->getTasks();
+ //echo "la valeur de l'id demandeur";
+// var_dump($id_demandeur);
+ $task = new Tasks("tourner la vise",$date_crea, 'Besoin Help', 1, 1, true, 'en cours');
 
 ?>
 
@@ -92,7 +101,7 @@ $task = $task->getTasks();
            <?php foreach ($task as $row) {
              $cpt = $cpt + 1;
        ?>
-        <tr id=<?php echo $cpt ?>><td> <?php echo (string) $row->id_demandeur ?></td><td> <?php echo (string) $row->nom ?></td><td> <?php echo (string) $row->id_intervenant ?></td><td> <?php echo (string) $row->statut ?></td><td><button onclick="myFunction(id)" id=<?php echo $cpt ?> type="button" class="btn btn-info"><i class="bi-check-circle" ></i></button><td><button type="button" class="btn btn-danger">  <i class="bi-trash" ></i></button></td></tr> 
+        <tr id=<?php echo $cpt ?>><td> <?php echo (string) var_dump($task->jointureNomDemandeur($row->nom)); ?></td><td> <?php echo (string) $row->nom ?></td><td> <?php echo (string) $row->id_intervenant ?></td><td> <?php echo (string) $row->statut ?></td><td><button onclick="myFunction(id)" id=<?php echo $cpt ?> type="button" class="btn btn-info"><i class="bi-check-circle" ></i></button><td><button type="button" class="btn btn-danger">  <i class="bi-trash" ></i></button></td></tr> 
        
          <?php
             }
